@@ -12,14 +12,17 @@ $metaName = new Meta(null, "viewport", null, "width=device-width, initial-scale=
 
 $title = new Title("Minha Página");
 
+$linkCss = new LinkCss("css/style.css","stylesheet", "","");
 $linkBootstrap = new LinkCss("https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css","stylesheet", "sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl","anonymous");
 
 $head = new Head();
 $head->addElement($metaCharset);
 $head->addElement($metaHttEquiv);
 $head->addElement($metaName);
+$head->addElement($linkCss);
 $head->addElement($linkBootstrap);
 $head->addElement($title);
+
 
 $body = new Body("body");
 
@@ -34,8 +37,8 @@ $barra->addElement($conteudoBarra);
 $areaprincipal = new Div("row");
 
 $dados_menu = $conn->getSelect("SELECT * FROM menu");
-$menu = new Menu(new Div("col-sm-2"), $dados_menu);
-$menu->insertIntoDb('HOME', 'ACAO', 'colunas', 'sqltabela');
+$menu = new Menu(new Div("navbar navbar-dark navbar-expand-lg bg-dark"), $dados_menu);
+//$menu->insertIntoDb('HOME', 'ACAO', 'colunas', 'sqltabela');
 
 $miolo = new Div("col-sm-10 bg-danger");
 

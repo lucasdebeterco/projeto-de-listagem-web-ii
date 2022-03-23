@@ -1,13 +1,13 @@
 <?php
-	class Menu {
+	class Produto {
 
-	private $container;
-	private $dados;
+	//private $container;
+	//private $dados;
 
-	public function __construct($pContainer, $pDados) {
-		$this->container = $pContainer;
-		$this->dados     = $pDados;
-	}
+	//public function __construct($pContainer, $pDados) {
+		//$this->container = $pContainer;
+		//$this->dados     = $pDados;
+	//}
 
 	public function __toString() {
 		$menuConteudo = new Ul("navbar-nav");
@@ -21,8 +21,8 @@
 		return $this->container->__toString();
 	}
 
-	public function insertIntoDb($texto, $acao, $colunas, $sqltabela) {
-		$sql = "INSERT INTO menu (texto, acao, colunas, sqltabela) values ('{$texto}', '{$acao}', '{$colunas}', '{$sqltabela}')";
+	public function insertIntoDb($nome, $valor, $totalEstoque) {
+		$sql = "INSERT INTO menu (nome, valor, totalEstoque) values ('{$nome}', '{$valor}', '{$totalEstoque}')";
 		$conn = new Conexao();
 		$conn->insertInto($sql);
 	}
